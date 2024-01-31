@@ -50,6 +50,7 @@ nav{
     left: 0;
     height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 10px 14px;
     width: 250px;
     background-color: var(--panel-color);
