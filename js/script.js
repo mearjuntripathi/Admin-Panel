@@ -1,43 +1,45 @@
-const body = document.querySelector('body');
-const modeToggle = body.querySelector('.mode-toggle');
-const sidebarToggle = body.querySelector('.sidebar-toggle');
-const sidebar = body.querySelector('nav');
+function initializeEventListeners() {
+    const body = document.querySelector('body');
+    const modeToggle = body.querySelector('.mode-toggle');
+    const sidebarToggle = body.querySelector('.sidebar-toggle');
+    const sidebar = body.querySelector('nav');
 
-let getMode = localStorage.getItem("mode");
-if (getMode && getMode === "dark") {
-    body.classList.toggle('dark');
+    let getMode = localStorage.getItem("mode");
+    if (getMode && getMode === "dark") {
+        body.classList.toggle('dark');
+    }
+
+    let getStatus = localStorage.getItem('status');
+    if (getStatus && getStatus === "close") {
+        sidebar.classList.toggle("close");
+    }
+
+    modeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+            localStorage.setItem("mode", "dark");
+        } else {
+            localStorage.setItem("mode", "light");
+        }
+    });
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle("close");
+        if (sidebar.classList.contains('close')) {
+            localStorage.setItem("status", "close");
+        } else {
+            localStorage.setItem("status", "open");
+        }
+    });
 }
 
-let getStatus = localStorage.getItem('status');
-if (getStatus && getStatus === "close") {
-    sidebar.classList.toggle("close");
-}
 
-modeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    if (body.classList.contains('dark')) {
-        localStorage.setItem("mode", "dark");
-    } else {
-        localStorage.setItem("mode", "light");
-    }
-});
-
-sidebarToggle.addEventListener('click', () => {
-    sidebar.classList.toggle("close");
-    if (sidebar.classList.contains('close')) {
-        localStorage.setItem("status", "close");
-    } else {
-        localStorage.setItem("stauts", "open");
-    }
-})
-
-
-var panel = document.getElementById('panel'); 
+var panel = document.getElementById('panel');
 
 function showDashboard() {
     var html = `<link rel="stylesheet" href="./css/deshboard.css">
     <div class="top">
-        <i class="uil uil-bars sidebar-toggle"></i>
+        <i class="uil uil-bars sidebar-toggle" ></i>
 
         <div class="search-box">
             <i class="uil uil-search"></i>
@@ -116,12 +118,13 @@ function showDashboard() {
     panel.classList.remove('enqires');
     panel.classList.add('dashboard');
     panel.innerHTML = html;
+    initializeEventListeners();
 }
 
 function showClients() {
     var html = `<link rel="stylesheet" href="./css/clients.css">
     <div class="top">
-        <i class="uil uil-bars sidebar-toggle"></i>
+        <i class="uil uil-bars sidebar-toggle" ></i>
 
         <div class="search-box">
             <i class="uil uil-search"></i>
@@ -221,12 +224,13 @@ function showClients() {
     panel.classList.remove('enqires');
     panel.classList.add('clients');
     panel.innerHTML = html;
+    initializeEventListeners();
 }
 
 function showNotifications() {
     var html = `<link rel="stylesheet" href="./css/notification.css">
     <div class="top">
-        <i class="uil uil-bars sidebar-toggle"></i>
+        <i class="uil uil-bars sidebar-toggle" ></i>
 
         <div class="search-box">
             <i class="uil uil-search"></i>
@@ -278,12 +282,13 @@ function showNotifications() {
     panel.classList.remove('enqires');
     panel.classList.add('notification');
     panel.innerHTML = html;
+    initializeEventListeners();
 }
 
 function showInquiry() {
     var html = `<link rel="stylesheet" href="./css/inquiry.css">
     <div class="top">
-        <i class="uil uil-bars sidebar-toggle"></i>
+        <i class="uil uil-bars sidebar-toggle" ></i>
 
         <div class="search-box">
             <i class="uil uil-questions"></i>
@@ -345,9 +350,10 @@ function showInquiry() {
                 </div>
             </div>  
         </div>`
-        panel.classList.remove('dashboard');
-        panel.classList.remove('clients');
-        panel.classList.remove('notification');
-        panel.classList.add('inquiry');
-        panel.innerHTML = html;
+    panel.classList.remove('dashboard');
+    panel.classList.remove('clients');
+    panel.classList.remove('notification');
+    panel.classList.add('inquiry');
+    panel.innerHTML = html;
+    initializeEventListeners();
 }
