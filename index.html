@@ -24,39 +24,27 @@
         <div class="menu-items">
             <ul class="nav-links">
                 <li>
-                    <a href="#" id="">
+                    <a href="#" id="" onclick="showDashboard()">
                         <i class="uil uil-estate"></i>
                         <span class="link-name">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="">
+                    <a href="#" id="" onclick="showClients()">
                         <i class="uil uil-users-alt"></i>
                         <span class="link-name">Clients</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="">
-                        <i class="uil uil-bell"></i>
+                    <a href="#" id="" onclick="showNotifications()">
+                        <i class="uil uil-bell" ></i>
                         <span class="link-name">Notifications</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="">
-                        <i class="uil uil-question"></i>
+                    <a href="#" id="" onclick="showInquiry()">
+                        <i class="uil uil-question" ></i>
                         <span class="link-name">Inquiry</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="">
-                        <i class="uil uil-document-info"></i>
-                        <span class="link-name">Blogs</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="">
-                        <i class="uil uil-building"></i>
-                        <span class="link-name">Properties</span>
                     </a>
                 </li>
             </ul>
@@ -89,7 +77,8 @@
         </div>
     </nav>
 
-    <section class="panel dashboard">
+    <section class="panel dashboard" id='panel'>
+        <link rel="stylesheet" href="./css/deshboard.css">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
 
@@ -154,7 +143,7 @@
                         <span class="data-list">NEW</span>
                     </div>
 
-                    <div class="data Status">
+                    <div class="data status">
                         <span class="data-title">Status</span>
                         <span class="data-list">View</span>
                         <span class="data-list">View</span>
@@ -165,7 +154,6 @@
             </div>
         </div>
     </section>
-
     <script src="./js/script.js" defer></script>
 </body>
 
