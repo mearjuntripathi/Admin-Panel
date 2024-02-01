@@ -16,6 +16,12 @@ modeToggle.addEventListener('click', () => {
 });
 
 function initializeEventListeners() {
+    document.addEventListener("DOMContentLoaded", function () {
+        window.addEventListener("load", function () {
+            document.getElementById("preloader").style.display = "none";
+        });
+    });
+    
     const sidebarToggle = body.querySelector('.sidebar-toggle');
     const sidebar = body.querySelector('nav');
 
@@ -357,6 +363,60 @@ function showInquiry() {
     panel.classList.remove('clients');
     panel.classList.remove('notification');
     panel.classList.add('inquiry');
+    panel.innerHTML = html;
+    initializeEventListeners();
+}
+
+function showSetting(){
+    let html = `<link rel="stylesheet" href="./css/setting.css">
+    <div class="top">
+        <i class="uil uil-bars sidebar-toggle"></i>
+
+        <div class="search-box">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="Search here . . .">
+        </div>
+        <img src="./images/profile.jpg" alt="">
+    </div>
+    <div class="setting-content">
+        <div class="overview">
+            <div class="title">
+                <i class="uil uil-setting"></i>
+                <span class="text">Settings</span>
+            </div>
+        </div>
+        <div class="activity">
+            <div class="title">
+                <i class="uil uil-edit"></i>
+                <span class="text">Hi, Admin Edit your company details</span>
+            </div>
+            <form class="edits" action="" method="">
+                <div class="input">
+                    <label for="">Campany facebook URL :</label>
+                    <input type="url" >
+                </div>
+                <div class="input">
+                    <label for="">Campany Instagram URL :</label>
+                    <input type="url" >
+                </div>
+                <div class="input">
+                    <label for="">Campany Twitter URL :</label>
+                    <input type="url" >
+                </div>
+                <div class="input">
+                    <label for="">Campany Whatapp URL :</label>
+                    <input type="url" >
+                </div>
+                <div class="input" style="flex-direction: column; align-items: center; gap: 30px;">
+                    <button type="submit">Submit</button>
+                    <a href="">Change Password</a>
+                </div>
+            </form>  
+        </div>`;
+    panel.classList.remove('dashboard');
+    panel.classList.remove('clients');
+    panel.classList.remove('notification');
+    panel.classList.add('setting');
     panel.innerHTML = html;
     initializeEventListeners();
 }
